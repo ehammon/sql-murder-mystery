@@ -15,3 +15,10 @@ ON drivers_license.id = person.license_id
 JOIN get_fit_now_member 
 ON get_fit_now_member.person_id = person.id
 WHERE plate_number LIKE "%H42W%" AND get_fit_now_member.id LIKE "%48Z%";
+
+SELECT * FROM drivers_license
+JOIN person 
+ON drivers_license.id = person.license_id
+JOIN facebook_event_checkin
+ON person.id = facebook_event_checkin.person_id
+WHERE drivers_license.hair_color LIKE "%red" AND car_make LIKE "%Tesla" AND gender = "female" AND event_name LIKE "%SQL Symphony concert";
