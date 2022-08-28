@@ -1,0 +1,17 @@
+SELECT * FROM crime_scene_report WHERE date = 20180115 AND type LIKE '%murder%' AND city = "SQL City";
+
+SELECT name, id, license_id, MAX(address_number) FROM person WHERE address_street_name = "Northwestern Dr";           
+
+SELECT * FROM person WHERE name LIKE "%annabel%" AND address_street_name LIKE "%Franklin%";
+
+SELECT * FROM interview
+JOIN person
+ON interview.person_id = person.id
+WHERE person.name = "Annabel Miller" OR person.name = "Morty Schapiro";
+
+SELECT * FROM drivers_license
+JOIN person
+ON drivers_license.id = person.license_id
+JOIN get_fit_now_member 
+ON get_fit_now_member.person_id = person.id
+WHERE plate_number LIKE "%H42W%" AND get_fit_now_member.id LIKE "%48Z%";
